@@ -1,0 +1,7 @@
+<% if current_user.id === item.user_id %>
+	<h1>ITEMS I OWN</h1>
+	<% @items.each do |item| %>
+		<img src="<%= image_url (item.image) %>"/>
+	<% end %>
+	<p>ITEMS I AM REPAIRING</p>
+	<%
