@@ -5,16 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<%#
+
   <!-- Bootstrap core CSS -->
   <link href="https://blackrockdigital.github.io/startbootstrap-modern-business/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-%>
+
 <!-- Custom styles for this template -->
   <link href="https://blackrockdigital.github.io/startbootstrap-modern-business/css/modern-business.css" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <!-- Bootswatch Styles -->
+ <!-- Bootswatch Styles -->
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -50,16 +50,20 @@
         <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
     </ul>
+
     <div class="form-inline my-2 my-lg-0">
       <div class="btn-group">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Large button
+  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
   </button>
-  <div class="dropdown-menu">
-    ...
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button">Dashboard</button>
+    <button class="dropdown-item" type="button">Edit Profile</button>
+    <button class="dropdown-item" type="button">Logout</button>
   </div>
 </div>
     </div>
+
   </div>
 </nav>
     <%= yield %>
