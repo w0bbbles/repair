@@ -50,16 +50,20 @@
         <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
     </ul>
+
     <div class="form-inline my-2 my-lg-0">
       <div class="btn-group">
-  <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Large button
+  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
   </button>
-  <div class="dropdown-menu">
-    ...
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button">Dashboard</button>
+    <button class="dropdown-item" type="button">Edit Profile</button>
+    <button class="dropdown-item" type="button">Logout</button>
   </div>
 </div>
     </div>
+
   </div>
 </nav>
     <%= yield %>
