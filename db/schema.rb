@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 2019_08_20_075831) do
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
-    t.string "itemname"
+    t.string "name"
     t.text "description"
     t.boolean "repairing"
     t.boolean "completed"
-    t.text "repairer"
+    t.integer "repairer"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -45,4 +46,8 @@ ActiveRecord::Schema.define(version: 2019_08_20_075831) do
   end
 
   add_foreign_key "items", "users"
+  create_table "landingpages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
