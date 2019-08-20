@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
   delete '/users/:id' => 'users#destroy'
 
+  resources :devise
 
-  get '/items/:item_id/users' => 'users#index', as: 'item_users'
-  get '/items/:item_id/users/new' => 'users#create', as: 'new_item_user'
-  post '/items/:item_id/users' => 'users#create'
 end
