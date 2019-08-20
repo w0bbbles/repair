@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_08_20_075831) do
 
   # These are extensions that must be enabled in order to support this database
@@ -40,4 +41,9 @@ ActiveRecord::Schema.define(version: 2019_08_20_075831) do
   end
 
   add_foreign_key "items", "users"
+  create_table "landingpages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
