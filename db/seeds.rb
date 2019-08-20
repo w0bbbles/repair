@@ -9,28 +9,44 @@
 items = Item.create(
   [
     {
+    name: "fan",
+    description: "Loud clanking sounds when on",
+    repairing: false,
+    completed: false,
+    repairer: 1,
+    image: "https://res.cloudinary.com/leileilei/image/upload/v1566293975/fan.jpg"
+    },
+    {
     name: "tv",
     description: "cracked screen & lines on screen",
     repairing: false,
-    completed: false,
-    repairer: 3,
-    image: "https://media.karousell.com/media/photos/products/2019/08/11/tv_1565495782_f9efa008_progressive.jpg"
+    completed: true,
+    repairer: 2,
+    image: "https://res.cloudinary.com/leileilei/image/upload/v1566293975/tv.jpg"
     },
     {
     name: "camera",
     description: "Shutter not working",
-    repairing: false,
+    repairing: true,
     completed: false,
     repairer: 3,
-    image: "https://media.karousell.com/media/photos/products/2019/08/17/camera_1566046635_87d114ec_progressive.jpg"
+    image: "https://res.cloudinary.com/leileilei/image/upload/v1566293975/camera.jpg"
     },
     {
     name: "hairdryer",
     description: "Burning hot after 1-min",
     repairing: false,
     completed: false,
-    repairer: 2,
-    image: "https://media.karousell.com/media/photos/products/2019/08/19/philips_ionic_hairdryer_1566202657_85a61ce3_progressive.jpg"
+    repairer: 1,
+    image: "https://res.cloudinary.com/leileilei/image/upload/v1566293975/hairdryer.jpg"
+    },
+    {
+    name: "laptop",
+    description: "Laptop won't start-up",
+    repairing: false,
+    completed: false,
+    repairer: 1,
+    image: "https://res.cloudinary.com/leileilei/image/upload/v1566293976/laptop.jpg"
     }
   ]
 )
