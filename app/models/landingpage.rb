@@ -1,0 +1,2 @@
+class Landingpage < ApplicationRecord
+end
