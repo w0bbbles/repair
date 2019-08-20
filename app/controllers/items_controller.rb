@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-
+    # @items = Item.all
+    @items = Item.where(repairing: false, completed: false)
   end
 
   def new
