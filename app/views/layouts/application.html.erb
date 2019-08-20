@@ -28,16 +28,26 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="landingpage#index">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="/users/sign_up">Registration</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="/users/sign_in">Sign In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <!-- <a class="nav-link" href="/users/sign_out">Sign Out</a> -->
+        <%= link_to 'Sign Out', destroy_user_session_url, class: "nav-link", method: :delete %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/:id">WeiDe Account Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/items">WenLei Main Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
