@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
     @items = Item.where(repairing: false)
   end

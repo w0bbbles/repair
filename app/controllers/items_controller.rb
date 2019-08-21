@@ -1,15 +1,22 @@
 class ItemsController < ApplicationController
   def index
     # @items = Item.all
+    puts "****************"
+    puts "USEEEEER"
+    puts current_user.id
     @items = Item.where(repairing: false, completed: false)
   end
 
   def new
-
+    @current = current_user.id
   end
 
   def create
-
+    # render plain: params[:item].inspect
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to @item
+    puts @item
   end
 
   def show
@@ -35,7 +42,14 @@ class ItemsController < ApplicationController
   end
 
   private
-    def item_params
-      params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed)
+  #Qns for Ben from WenLei wld this 2 item_params conflict? 21/08/2019 9:27PM
+  #WenLei item_params
+  def item_params
+    params.require(:items).permit(:name, :description, :image, :user_id)
+  end
+  
+  #Ben item_params
+  def item_params
+    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed)
   end
 end
