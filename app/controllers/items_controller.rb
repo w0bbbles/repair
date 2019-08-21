@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @current = current_user.id
   end
 
   def edit
@@ -28,7 +29,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    #render plain: params.inspect
+    @item = Item.find(params[:id])
 
+    @item.update_attribute(:repairing, params[:item][:repairing])
+    # render plain: params.inspect
+    redirect_to root_path
   end
 
   def destroy
@@ -36,9 +42,14 @@ class ItemsController < ApplicationController
   end
 
   private
+  #Qns for Ben from WenLei wld this 2 item_params conflict? 21/08/2019 9:27PM
+  #WenLei item_params
   def item_params
     params.require(:items).permit(:name, :description, :image, :user_id)
   end
-
-
+  
+  #Ben item_params
+  def item_params
+    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed)
+  end
 end
