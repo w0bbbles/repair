@@ -1,0 +1,14 @@
+<a class="img-link" href="/users/<%= @item.user_id%>">
+	<img src=<%= image_url (@item.image) %>/>
+</a>
+<p><%= @item.description %><p>
+
+<%= form_with scope: :items, model: @item, local: true do |form| %>
+	<!-- <div class="btn-group-toggle" data-toggle="buttons">
+	  <label class="btn btn-secondary active"> -->
+			<input type="hidden" name="item[repairing]" value="true">
+			<button type="submit">I want to repair</button>
+
+	<!-- 	</label>
+	</div> -->
+<% end %>
