@@ -27,27 +27,20 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Fix My Junk</a>
+  <a class="navbar-brand" href="/">Fix & Break</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      <!-- <li class="nav-item active"> -->
+        <!-- <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a> -->
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/sign_up">Registration</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/sign_in">Sign In</a>
-      </li>
-      <li class="nav-item">
-        <!-- <a class="nav-link" href="/users/sign_out">Sign Out</a> -->
-        <%= link_to 'Sign Out', destroy_user_session_url, class: "nav-link", method: :delete %>
-      </li>
-      <li class="nav-item">
+
+    <% if user_signed_in? %>
+
+    	<li class="nav-item">
         <a class="nav-link" href="/users/:id">WeiDe Account Page</a>
       </li>
       <li class="nav-item">
@@ -56,6 +49,21 @@
       <li class="nav-item">
         <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="/users/sign_out">Sign Out</a> -->
+      </li>
+
+    <% else %>
+
+			<li class="nav-item">
+        <a class="nav-link" href="/users/sign_up">Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/sign_in">Sign In</a>
+      </li>
+
+    <% end %>
+
     </ul>
 
     <div class="form-inline my-2 my-lg-0">
@@ -64,14 +72,15 @@
    <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
   </button>
   <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button">Dashboard</button>
-    <button class="dropdown-item" type="button">Edit Profile</button>
-    <button class="dropdown-item" type="button"><%= link_to 'Sign Out', destroy_user_session_url, method: :delete %></button>
-  </div>
-</div>
-    </div>
 
+    <button class="dropdown-item" type="button"><a href="/users/sign_in">Dashboard</a></button>
+    <button class="dropdown-item" type="button"><a href="/users/sign_in">Edit Profile</a></button>
+    <div class="dropdown-divider"></div>
+    <%= link_to 'Sign Out', destroy_user_session_url, class: "dropdown-item", method: :delete %>
+	</div>
   </div>
+
+  	</div>
 </nav>
     <%= yield %>
   <!-- Footer -->
