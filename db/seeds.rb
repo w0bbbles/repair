@@ -50,3 +50,24 @@ items = Item.create(
     }
   ]
 )
+
+users = User.create(
+  [
+    {
+    email: "keith@email.com",
+    encrypted_password: "123456"
+    },
+    {
+    email: "wenlei@email.com",
+    encrypted_password: "123456"
+    },
+    {
+    email: "weide@email.com",
+    encrypted_password: "123456"
+    },
+    {
+    email: "ty@email.com",
+    encrypted_password: "123456"
+    }
+  ]
+)
