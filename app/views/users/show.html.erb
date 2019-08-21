@@ -1,27 +1,27 @@
 <% if current_user.id === item.user_id %>
 	<h1>ITEMS I OWN</h1>
 	<% @items.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 	<p>ITEMS I AM REPAIRING</p>
 	<% @repairingitems.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 	<p>ITEMS I HAVE REPAIRED</p>
 	<% @completeditems.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 <% else %>
 	<h1>ITEMS OWNED</h1>
 	<% @items.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 	<p>ITEMS REPAIRING</p>
 	<% @repairingitems.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 	<p>ITEMS REPAIRED</p>
 	<% @completeditems.each do |item| %>
-		<img src="<%= image_url (item.image) %>"/>
+		<img src=<%= image_url (item.image) %>/>
 	<% end %>
 <% end %>
