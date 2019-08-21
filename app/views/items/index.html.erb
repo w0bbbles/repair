@@ -50,7 +50,7 @@
 		 <% @items.each do |item| %>
     	 <div class="col-lg-4 col-sm-6 portfolio-item">
       	 <div class="card h-100">
-	      	 <a href="#"><img class="card-img-top" src=<%= image_url (item.image)%> /></a>
+	      	 <div class="item-list-card"><a href="#"><img class="card-img-top" src=<%= image_url (item.image)%> /></a></div>
         	 <div class="card-body">
         	 	<h4 class="card-title">
         	 		<a href="#"><%= item.id %></a>
