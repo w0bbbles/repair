@@ -66,7 +66,7 @@
   <div class="dropdown-menu dropdown-menu-right">
     <button class="dropdown-item" type="button">Dashboard</button>
     <button class="dropdown-item" type="button">Edit Profile</button>
-    <button class="dropdown-item" type="button">Logout</button>
+    <button class="dropdown-item" type="button"><%= link_to 'Sign Out', destroy_user_session_url, method: :delete %></button>
   </div>
 </div>
     </div>
