@@ -44,12 +44,12 @@ class ItemsController < ApplicationController
   private
   #Qns for Ben from WenLei wld this 2 item_params conflict? 21/08/2019 9:27PM
   #WenLei item_params
-  def item_params
-    params.require(:items).permit(:name, :description, :image, :user_id)
-  end
+  # def item_params
+  #   params.require(:items).permit(:name, :description, :image, :user_id)
+  # end
 
   #Ben item_params
   def item_params
-    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed)
+    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed, :repairer)
   end
 end
