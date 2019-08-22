@@ -1,4 +1,64 @@
-<% if @allitems.empty?  %>
+<div class="jumbotron" >
+  <h1 class="display-3">WELCOME TO USER PAGE</h1>
+  <p class="lead">Click "User" to view items related user and click "For Others" to view items that users had helped others with.</p>
+  <hr class="my-4">
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade show active" id="home">
+  	<% if @allitems.empty?  %>
+	<p> test test</p>
+<% elsif current_user.id == @allitems[0].user_id %>
+	<h1>My Items that need repair</h1>
+	<% @items.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+	<p>My items that are under repair</p>
+	<% @repairingitems.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+	<p>My repaired items</p>
+	<% @completeditems.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+
+<% else%>
+	<h1>ITEMS OWNED BY OTHERS</h1>
+	<% @items.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+	<p>Other's items under repair</p>
+	<% @repairingitems.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+	<p>Other's repaired items</p>
+	<% @completeditems.each do |item| %>
+		<a class="link" href="/items/<%= item.id%>">
+			<img src="<%= image_url (item.image) %>"/>
+		</a>
+	<% end %>
+
+<% end %>
+  </div>
+  <div class="tab-pane fade" id="profile">
+   <% if @allitems.empty?  %>
 	<p> test test</p>
 <% elsif current_user.id == @allitems[0].user_id %>
 	<h1>My Items that need repair</h1>
@@ -57,3 +117,5 @@
 		</a>
 	<% end %>
 <% end %>
+  </div>
+</div>
