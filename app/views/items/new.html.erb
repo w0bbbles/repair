@@ -1,25 +1,36 @@
-<%= form_with scope: :items, url: items_path, local: true do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<div class="row">
+	<div class="col-md-4" style="margin: 20px auto;">
+		<h2>Add New Item</h2>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+		<!-- Start of Form -->
+		<%= form_with scope: :items, url: items_path, local: true do |form| %>
 
-  <p>
-    <%= form.label :image %><br>
-    <%= form.text_field :image %>
-  </p>
+		  <!-- name -->
+		  <div class="form-group">
+		    <%= form.label :name %><br>
+		    <%= form.text_field :name, class: "form-control" %>
+		  </div>
 
-  <input type="hidden" name="items[user_id]" value="<%= @current%>">
-  <input type="hidden" name="items[repairing]" value="false">
-  <input type="hidden" name="items[completed]" value="false">
-  <input type="hidden" name="items[repairer]" value="null">
+		  <!-- description -->
+		  <div class="form-group">
+		    <%= form.label :description %><br>
+		    <%= form.text_area :description, class: "form-control" %>
+		  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+		  <!-- image -->
+		  <div class="form-group">
+		    <%= form.label :image %><br>
+		    <%= form.text_field :image, class: "form-control" %>
+		  </div>
+
+		  <input type="hidden" name="items[user_id]" value="<%= @current%>">
+		  <input type="hidden" name="items[repairing]" value="false">
+		  <input type="hidden" name="items[completed]" value="false">
+		  <input type="hidden" name="items[repairer]" value="null">
+
+		  <p>
+		    <%= form.submit class: "btn btn-primary" %>
+		  </p>
+		<% end %>
+	</div>
+</div>

@@ -20,14 +20,13 @@
 
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
 
-
-
 </head>
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <a class="navbar-brand" href="/">Fix & Break</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -41,23 +40,22 @@
     <% if user_signed_in? %>
 
     	<li class="nav-item">
-        <a class="nav-link" href="/users/<%= current_user.id%>">WeiDe Account Page</a>
+        <a class="nav-link" href="/">About Us</a>
+
+      </li>
+    	<li class="nav-item">
+        <a class="nav-link" href="/users/:id">WeiDe Account Page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/items">WenLei Main Page</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/items/new">WenLei Add Page</a>
+        <a class="nav-link" href="/items/new">Add Item</a>
       </li>
 
 		</ul>
-
       <div class="form-inline my-2 my-lg-0">
-
-	    	<div>
-	        <span><%=current_user.email%></span>
+      	<!-- Username Indicator -->
+	    	<div class="nav-item">
+	        <span class="nav-link">Welcome back, <%=current_user.username%></span>
 	      </div>
-
       <div class="btn-group ml-3">
 			  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
@@ -77,18 +75,39 @@
 			<li class="nav-item">
         <a class="nav-link" href="/users/sign_up">Registration</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" href="/users/sign_in">Sign In</a>
       </li>
 		<% end %>
 
+
 </nav>
+    <div style="min-height: 80vh">
     <%= yield %>
+    </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
+    <div class="container text-white">
+        <div class="row">
+    <div class="col-sm">
+      <h5>Software Immersive P3G2 Group</h5>
+      <address>79 Anson Rd<br>
+      Level 20<br>
+      Singapore 079906
+      </address>
+    </div>
+    <div class="col-sm">
+      <p>email@email.com</p>
+    </div>
+    <div class="col-sm">
+      <p>+65 1234 5678</p>
+    </div>
+  </div>
+        <div class="row">
+        <div class="col-sm">
+            <p class="m-0 text-center">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
+            </div>
+        </div>
     </div>
     <!-- /.container -->
   </footer>
