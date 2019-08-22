@@ -47,4 +47,8 @@ class UsersController < ApplicationController
 
   end
 
+  def test
+
+  end
+
 end
