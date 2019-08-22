@@ -51,25 +51,14 @@
         <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
 
-    <% else %>
+		</ul>
 
-			<li class="nav-item">
-        <a class="nav-link" href="/users/sign_up">Registration</a>
-      </li>
+      <div class="form-inline my-2 my-lg-0">
 
-      <li class="nav-item">
-        <a class="nav-link" href="/users/sign_in">Sign In</a>
-      </li>
+	    	<div>
+	        <span><%=current_user.email%></span>
+	      </div>
 
-    <% end %>
-
-
-    </ul>
-
-    <div class="form-inline my-2 my-lg-0">
-    	<div>
-        <span><%=current_user.email%></span>
-      </div>
       <div class="btn-group ml-3">
 			  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
@@ -82,6 +71,19 @@
 					</div>
   		</div>
   	</div>
+
+    <% else %>
+
+
+			<li class="nav-item">
+        <a class="nav-link" href="/users/sign_up">Registration</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/users/sign_in">Sign In</a>
+      </li>
+		<% end %>
+
 </nav>
     <%= yield %>
   <!-- Footer -->
