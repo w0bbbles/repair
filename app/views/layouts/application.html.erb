@@ -49,9 +49,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/items/new">WenLei Add Page</a>
       </li>
-      <li class="nav-item">
-        <!-- <a class="nav-link" href="/users/sign_out">Sign Out</a> -->
-      </li>
 
     <% else %>
 
@@ -62,27 +59,26 @@
       <li class="nav-item">
         <a class="nav-link" href="/users/sign_in">Sign In</a>
       </li>
-
-
-
     <% end %>
+
 
     </ul>
 
     <div class="form-inline my-2 my-lg-0">
-      <div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right">
-
-    <button class="dropdown-item" type="button"><a href="/users/sign_in">Dashboard</a></button>
-    <button class="dropdown-item" type="button"><a href="/users/sign_in">Edit Profile</a></button>
-    <div class="dropdown-divider"></div>
-    <%= link_to 'Sign Out', destroy_user_session_url, class: "dropdown-item", method: :delete %>
-	</div>
-  </div>
-
+    	<div>
+        <span><%=current_user.email%></span>
+      </div>
+      <div class="btn-group ml-3">
+			  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
+			  </button>
+				  <div class="dropdown-menu dropdown-menu-right">
+				    <button class="dropdown-item" type="button"><a href="/users/sign_in">Dashboard</a></button>
+				    <button class="dropdown-item" type="button"><a href="/users/edit">Profile Settings</a></button>
+				    <div class="dropdown-divider"></div>
+				    <%= link_to 'Sign Out', destroy_user_session_url, class: "dropdown-item", method: :delete %>
+					</div>
+  		</div>
   	</div>
 </nav>
     <%= yield %>
