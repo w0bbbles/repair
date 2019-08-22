@@ -24,8 +24,9 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/items">Fix & Break</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="/">Fix & Break</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -79,14 +80,34 @@
       </li>
 		<% end %>
 
-	</nav>
-    <div style="height: 80vh">
+
+</nav>
+    <div style="min-height: 80vh">
     <%= yield %>
     </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
+    <div class="container text-white">
+        <div class="row">
+    <div class="col-sm">
+      <h5>Software Immersive P3G2 Group</h5>
+      <address>79 Anson Rd<br>
+      Level 20<br>
+      Singapore 079906
+      </address>
+    </div>
+    <div class="col-sm">
+      <p>email@email.com</p>
+    </div>
+    <div class="col-sm">
+      <p>+65 1234 5678</p>
+    </div>
+  </div>
+        <div class="row">
+        <div class="col-sm">
+            <p class="m-0 text-center">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
+            </div>
+        </div>
     </div>
     <!-- /.container -->
   </footer>
