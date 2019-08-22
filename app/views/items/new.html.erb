@@ -15,6 +15,9 @@
   </p>
 
   <input type="hidden" name="items[user_id]" value="<%= @current%>">
+  <input type="hidden" name="items[repairing]" value="false">
+  <input type="hidden" name="items[completed]" value="false">
+  <input type="hidden" name="items[repairer]" value="null">
 
   <p>
     <%= form.submit %>

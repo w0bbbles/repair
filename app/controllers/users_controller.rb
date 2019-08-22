@@ -22,10 +22,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # get user number 1
-    # will return an array
+    puts @user.email
     @items = Item.where(user_id: params[:id].to_i, repairing: false, completed: false)
-    # @items = Item.find_all{|item| item.user_id == params[:id].to_i && ...}
+    puts "===================================="
+    p @items
     @repairingitems = Item.where(user_id: params[:id].to_i,repairing: true, completed: false)
     @completeditems = Item.where(user_id: params[:id].to_i,repairing: false, completed: true)
 
