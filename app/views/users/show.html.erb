@@ -1,27 +1,63 @@
-<% if current_user.id === item.user_id %>
-	<h1>ITEMS I OWN</h1>
+<% if current_user.id == @item.user_id %>
+	<h1>My Items that need repair</h1>
 	<% @items.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
-	<p>ITEMS I AM REPAIRING</p>
+	<p>My items that are under repair</p>
 	<% @repairingitems.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
-	<p>ITEMS I HAVE REPAIRED</p>
+	<p>My repaired items</p>
 	<% @completeditems.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
+	<% end %>
+	<p>Items i am repairing for others</p>
+	<% @repairingothers.each do |item| %>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
+	<% end %>
+	<p>Items i have repaired for others</p>
+	<% @completedothers.each do |item| %>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
 <% else %>
-	<h1>ITEMS OWNED</h1>
+	<h1>ITEMS OWNED BY OTHERS</h1>
 	<% @items.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
-	<p>ITEMS REPAIRING</p>
+	<p>Other's items under repair</p>
 	<% @repairingitems.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
-	<p>ITEMS REPAIRED</p>
+	<p>Other's repaired items</p>
 	<% @completeditems.each do |item| %>
-		<img src=<%= image_url (item.image) %>/>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
+	<% end %>
+	<p>Other's repairing another's items</p>
+	<% @repairingothers.each do |item| %>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
+	<% end %>
+	<p>Other's completed items of another's</p>
+	<% @completedothers.each do |item| %>
+		<a class="link" href="/items/<%= @item.id%>">
+			<img src=<%= image_url (item.image) %>/>
+		</a>
 	<% end %>
 <% end %>

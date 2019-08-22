@@ -1,0 +1,43 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src ="<%= image_path(@item.image)%>" />
+</p>
+
+<%= link_to 'Back', root_path %>
+
+<a class="img-link" href="/users/<%= @item.user_id%>">
+	<img src=<%= image_url (@item.image) %>/>
+</a>
+<p><%= @item.description %><p>
+
+<% if current_user.id == @item.user_id && @item.repairing == false %>
+	<p>item still waiting for help</p>
+<% elsif current_user.id == @item.user_id && @item.repairing == true %>
+	<a href="/items/<%= @item.id %>/edit">
+		<button>Items under repair</button>
+	</a>
+<% elsif current_user.id == @item.user_id && @item.completed == true %>
+	<p>item was completed by other</p>
+<% elsif current_user.id == @item.repairer && @item.repairing == true %>
+	<a href="/items/<%= @item.id %>/edit">
+		<button>You are repairing</button>
+	</a>
+<% elsif current_user.id == @item.repairer && @item.completed == true %>
+	<p>You have completed the item</p>
+<% else %>
+	<%= form_with scope: :items, model: @item, local: true do |form| %>
+				<input type="hidden" name="item[repairing]" value="true">
+				<button type="submit">I want to repair</button>
+	<% end %>
+<% end %>
