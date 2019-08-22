@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'landingpage#index'
 
+  get '/users/test' => 'users#test', as: 'test'
+
   resources :landingpage
   resources :devise
   resources :items
