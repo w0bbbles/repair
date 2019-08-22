@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectThree</title>
+    <title>Fix & Break</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -82,7 +82,7 @@
 
 
 </nav>
-    <div style="min-height: 80vh">
+    <div style="min-height: 70vh">
     <%= yield %>
     </div>
   <!-- Footer -->
@@ -90,22 +90,25 @@
     <div class="container text-white">
         <div class="row">
     <div class="col-sm">
-      <h5>Software Immersive P3G2 Group</h5>
-      <address>79 Anson Rd<br>
+      <h6>Software P3G2 Group</h6>
+      <p>79 Anson Rd<br>
       Level 20<br>
       Singapore 079906
-      </address>
+      </p>
     </div>
     <div class="col-sm">
-      <p>email@email.com</p>
+        <h6>Contact:</h6>
+      <p>email@email.com<br>+65 1234 5678</p>
     </div>
     <div class="col-sm">
-      <p>+65 1234 5678</p>
+      <h6>Find us on:</h6>
+		<a href="http://facebook.com"><img class="social-icons" src=<%= image_url ('application/f_logo_RGB-Blue_58.png')%> /></a>
+		<a href="http://twitter.com"><img class="social-icons" src=<%= image_url ('application/Twitter_Social_Icon_Circle_Color.png')%> /></a>
     </div>
   </div>
         <div class="row">
         <div class="col-sm">
-            <p class="m-0 text-center">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
+            <p class="m-0 pt-3 text-center border-top">Copyright &copy; SEI19 P3G2 GA Singapore 2019</p>
             </div>
         </div>
     </div>
