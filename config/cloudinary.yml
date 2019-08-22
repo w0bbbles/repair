@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: leileilei
+  api_key: '711485365458528'
+  api_secret: 1uGQ9eX-gS8zmRl072449qNUCWk
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: leileilei
+  api_key: '711485365458528'
+  api_secret: 1uGQ9eX-gS8zmRl072449qNUCWk
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: leileilei
+  api_key: '711485365458528'
+  api_secret: 1uGQ9eX-gS8zmRl072449qNUCWk
+  enhance_image_tag: true
+  static_file_support: false

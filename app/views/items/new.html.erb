@@ -20,7 +20,8 @@
 		  <!-- image -->
 		  <div class="form-group">
 		    <%= form.label :image %><br>
-		    <%= form.text_field :image, class: "form-control" %>
+		    <%= form.file_field :image, class: "form-control" %>
+
 		  </div>
 
 		  <input type="hidden" name="items[user_id]" value="<%= @current%>">
