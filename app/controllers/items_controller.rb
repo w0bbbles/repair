@@ -22,10 +22,19 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @current = current_user.id
+    p "-=-================"
+    p @item.repairer.to_i
+    p @item.user_id
   end
 
   def edit
-
+    @item = Item.find(params[:id])
+    @current = current_user.id
+    p "======================="
+    p @item
+    p @current
+    p "repairing", @item.repairing
+    p "repairer", @item.repairer
   end
 
   def update
@@ -33,6 +42,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     @item.update_attribute(:repairing, params[:item][:repairing])
+    @item.update_attribute(:repairer, params[:item][:repairer])
+    @item.update_attribute(:description, params[:item][:description])
+
+    @item.update_attribute(:completed, params[:item][:completed])
     # render plain: params.inspect
     redirect_to "/items/"+params[:id]+"/edit"
   end
