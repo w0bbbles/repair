@@ -57,7 +57,6 @@
 	    	<div>
 	        <span><%=current_user.email%></span>
 	      </div>
-
       <div class="btn-group ml-3">
 			  <button type="button" class="btn btn-secondary dropdown-toggle p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
@@ -84,7 +83,9 @@
 		<% end %>
 
 </nav>
+    <div style="height: 80vh">
     <%= yield %>
+    </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
