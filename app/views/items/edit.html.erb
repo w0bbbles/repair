@@ -1,0 +1,29 @@
+<img src="<%= image_url (@item.image) %>"/>
+
+<% if @current == @item.repairer.to_i && @item.repairing == true %>
+	<p>you are repairing this<p>
+	<%= form_with scope: :items, model: @item, local: true do |form| %>
+				<input type="hidden" name="item[repairing]" value="false">
+				<input type="hidden" name="item[completed]" value ="true">
+				<input type="hidden" name="item[repairer]" value="<%=@current%>">
+				<input type="hidden" name="item[description]" value="<%=@item.description%>">
+				<button type="submit">Completed</button>
+	<% end %>
+	<%= form_with scope: :items, model: @item, local: true do |form| %>
+				<p>
+			    <%= form.label :description %><br>
+			    <textarea rows="4" cols="50" name="item[description]"><%= @item.description %></textarea>
+			  </p>
+			  <input type="hidden" name="item[repairing]" value="true">
+			  <input type="hidden" name="item[repairer]" value="<%=@current%>">
+			  <input type="hidden" name="item[completed]" value="false">
+			  <button type="submit">update description</button>
+	<% end %>
+<% elsif @current == @item.repairer.to_i && @item.completed == true %>
+	<p>You have repaired this<p>
+<% elsif @current == @item.user_id && @item.repairing == true %>
+	<p>your item is under repair by others</p>
+<% elsif @current == @item.user_id && @item.completed == true %>
+	<p>your item is repaired by others</p>
+
+<% end %>

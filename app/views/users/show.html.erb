@@ -1,4 +1,6 @@
-<% if current_user.id == @items[0].	user_id %>
+<% if @allitems.empty?  %>
+	<p> test test</p>
+<% elsif current_user.id == @allitems[0].user_id %>
 	<h1>My Items that need repair</h1>
 	<% @items.each do |item| %>
 		<a class="link" href="/items/<%= item.id%>">
@@ -29,7 +31,7 @@
 			<img src="<%= image_url (item.image) %>"/>
 		</a>
 	<% end %>
-<% else %>
+<% else%>
 	<h1>ITEMS OWNED BY OTHERS</h1>
 	<% @items.each do |item| %>
 		<a class="link" href="/items/<%= item.id%>">
@@ -50,12 +52,6 @@
 	<% end %>
 	<p>Other's repairing another's items</p>
 	<% @repairingothers.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
-	<p>Other's completed items of another's</p>
-	<% @completedothers.each do |item| %>
 		<a class="link" href="/items/<%= item.id%>">
 			<img src="<%= image_url (item.image) %>"/>
 		</a>

@@ -41,7 +41,7 @@
     <% if user_signed_in? %>
 
     	<li class="nav-item">
-        <a class="nav-link" href="/users/:id">WeiDe Account Page</a>
+        <a class="nav-link" href="/users/<%= current_user.id%>">WeiDe Account Page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/items">WenLei Main Page</a>
@@ -51,7 +51,7 @@
       </li>
 
 		</ul>
-    
+
       <div class="form-inline my-2 my-lg-0">
 
 	    	<div>

@@ -28,15 +28,22 @@
 	</a>
 <% elsif @current == @item.user_id && @item.completed == true %>
 	<p>item was completed by other</p>
-<% elsif @current == @item.repairer && @item.repairing == true %>
+<% elsif @current == @item.repairer.to_i && @item.repairing == true %>
 	<a href="/items/<%= @item.id %>/edit">
 		<button>You are repairing</button>
 	</a>
-<% elsif @current == @item.repairer && @item.completed == true %>
+<% elsif @current == @item.repairer.to_i && @item.completed == true %>
 	<p>You have completed the item</p>
+<% elsif @current ==! @item.repairer.to_i && @item.repairing == true %>
+	<p>item under repair by others</p>
+<% elsif @current ==! @item.repairer.to_i && @item.completed == true %>
+	<p>item completed by others</p>
 <% else %>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
 				<input type="hidden" name="item[repairing]" value="true">
-				<button type="submit">I want to repair</button>
+				<input type="hidden" name="item[repairer]" value="<%=@current%>">
+				<input type="hidden" name="item[description]" value="<%=@item.description%>">
+				<input type="hidden" name="item[completed]" value="false">
+				<button type="submit">I WANT TO REPAIR</button>
 	<% end %>
 <% end %>
