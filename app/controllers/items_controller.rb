@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
     @item.update_attribute(:repairing, params[:item][:repairing])
     # render plain: params.inspect
-    redirect_to root_path
+    redirect_to "/items/"+params[:id]+"/edit"
   end
 
   def destroy
