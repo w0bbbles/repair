@@ -1,5 +1,9 @@
+<div class="row devise-page-bg">
+  <div class="card px-4 col-md-4 content-middle-vertical">
 <p>Welcome <%= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  </div>
+</div>
