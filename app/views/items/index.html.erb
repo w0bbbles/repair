@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "items_listing" %>
 
   <!-- Page Content -->
   <div class="container">
@@ -8,14 +8,16 @@
 
     <div class="row">
 		 <% @items.each do |item| %>
-    	 <div class="col-lg-4 col-sm-6 portfolio-item">
+    	 <div class="col-lg-3 col-sm-6 portfolio-item">
       	 <div class="card h-100">
-	      	 <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src=<%= image_url (item.image)%> /></a></div>
+	      	 <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src="<%= image_url (item.image)%>" /></a></div>
         	 <div class="card-body">
         	 	<h4 class="card-title">
-        	 		<a href="#"><%= item.name %></a>
+        	 		<a href="/items/<%= item.id%>"><%= item.name.titlecase %></a>
       	 		</h4>
       	 		<p class="card-text"><%= item.description %></p>
+      	 		<p class="card-text-posted-by">posted by: <a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
+      	 		<p class="card-text-posted-by">posted by: <%= item.user.email %></p>
     	 		</div>
   	 		</div>
 	 		</div>
@@ -28,10 +30,10 @@
     <!-- Call to Action Section -->
     <div class="row mb-4">
       <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+        <p>Do you have a household item that needed repair? <br /> Add your items to our community of tinkerers to help you fix it. </p>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
+        <a class="btn btn-lg btn-secondary btn-block" href="/items/new">Add Item</a>
       </div>
     </div>
 

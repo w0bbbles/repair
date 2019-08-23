@@ -6,7 +6,7 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner text-shadow-border" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image:url(<%= image_url('landingpage/slide1.jpg') %>)">
           <div class="carousel-caption d-none d-md-block">
@@ -94,7 +94,7 @@
 	      	 <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src=<%= image_url (item.image)%> /></a></div>
         	 <div class="card-body">
         	 	<h4 class="card-title">
-        	 		<a href="#"><%= item.name %></a>
+        	 		<a href="#"><%= item.name.titlecase %></a>
       	 		</h4>
       	 		<p class="card-text text-wrap"><%= item.description %></p>
     	 		</div>

@@ -1,8 +1,5 @@
 class ItemsController < ApplicationController
   def index
-    # @items = Item.all
-    puts "****************"
-    puts "USEEEEER"
     @items = Item.where(repairing: false, completed: false)
   end
 
@@ -14,7 +11,7 @@ class ItemsController < ApplicationController
     # render plain: params[:item].inspect
     @item = Item.new(item_params)
 
-
+    # cloudinary feature
     uploaded_file = params[:items][:image].path
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     @item.image = cloudinary_file["secure_url"]
@@ -24,8 +21,6 @@ class ItemsController < ApplicationController
     @item.save
     redirect_to @item
     puts @item
-
-
   end
 
   def show
