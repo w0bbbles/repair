@@ -19,6 +19,17 @@
 			  <input type="hidden" name="item[completed]" value="false">
 			  <button type="submit">update description</button>
 	<% end %>
+<% elsif @current == @item.user_id && @item.repairing == false %>
+	<%= form_with scope: :items, model: @item, local: true do |form| %>
+				<input type="hidden" name="item[repairing]" value="false">
+				<input type="hidden" name="item[completed]" value ="false">
+				<input type="hidden" name="item[repairer]" value="null">
+				<p>
+			    <%= form.label :description %><br>
+			    <textarea rows="4" cols="50" name="item[description]"><%= @item.description %></textarea>
+			  </p>
+				<button type="submit">Update</button>
+	<% end %>
 <% elsif @current == @item.repairer.to_i && @item.completed == true %>
 	<p>You have repaired this<p>
 <% elsif @current == @item.user_id && @item.repairing == true %>

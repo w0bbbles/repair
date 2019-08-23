@@ -6,7 +6,7 @@
 <p><%= @item.description %><p>
 <% if @current == @item.user_id && @item.repairing == false %>
 	<p>item still waiting for help</p>
-	<a href="items/<%= @item.id%>/edit">
+	<a href="/items/<%= @item.id%>/edit">
 		<button>Click here to edit</button>
 	</a>
 <% elsif @current == @item.user_id && @item.repairing == true %>
