@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "items_listing" %>
 
   <!-- Page Content -->
   <div class="container">
@@ -8,7 +8,7 @@
 
     <div class="row">
 		 <% @items.each do |item| %>
-    	 <div class="col-lg-4 col-sm-6 portfolio-item">
+    	 <div class="col-lg-3 col-sm-6 portfolio-item">
       	 <div class="card h-100">
 	      	 <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src=<%= image_url (item.image)%> /></a></div>
         	 <div class="card-body">
@@ -16,6 +16,8 @@
         	 		<a href="/items/<%= item.id%>"><%= item.name %></a>
       	 		</h4>
       	 		<p class="card-text"><%= item.description %></p>
+      	 		<p class="card-text-posted-by">posted by: <%= item.user.username %></p>
+      	 		<p class="card-text-posted-by">posted by: <%= item.user.email %></p>
     	 		</div>
   	 		</div>
 	 		</div>
