@@ -1,9 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   def index
-    # @items = Item.all
-    puts "****************"
-    puts "USEEEEER"
     @items = Item.where(repairing: false, completed: false)
   end
 
@@ -15,7 +12,7 @@ class ItemsController < ApplicationController
     # render plain: params[:item].inspect
     @item = Item.new(item_params)
 
-
+    # cloudinary feature
     uploaded_file = params[:items][:image].path
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     @item.image = cloudinary_file["secure_url"]
@@ -25,8 +22,6 @@ class ItemsController < ApplicationController
     @item.save
     redirect_to @item
     puts @item
-
-
   end
 
   def show
@@ -56,7 +51,7 @@ class ItemsController < ApplicationController
 
     @item.update_attribute(:completed, params[:item][:completed])
     # render plain: params.inspect
-    redirect_to "/items/"+params[:id]+"/edit"
+    redirect_to "/items/"+params[:id]+"/"
   end
 
   def destroy
@@ -72,6 +67,6 @@ class ItemsController < ApplicationController
 
   #Ben item_params
   def item_params
-    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed, :repairer)
+    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed, :repairer, :reviewed)
   end
 end

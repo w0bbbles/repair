@@ -10,16 +10,8 @@ protected
    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
-  def after_sign_in_path_for(user)
-    puts "user.inspect"
-    puts user.inspect;
-    return items_path;
-    # puts "user.name"
-    # puts user.name
-    # return the path based on resource
+  def after_sign_in_path_for(items)
+    return items_path
   end
 
-  # def after_sign_out_path_for(resource)
-  #   # return the path based on resource
-  # end
 end

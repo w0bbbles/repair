@@ -10,5 +10,10 @@ Rails.application.routes.draw do
   resources :devise
   resources :items
   resources :users
+  # resources :reviews
+
+  get '/items/:id/review' => 'reviews#new', as: 'save_review'
+  post '/items/:id/review' => 'reviews#create', as: 'create_review'
+
 
 end
