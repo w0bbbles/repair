@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
 
     @item.update_attribute(:completed, params[:item][:completed])
     # render plain: params.inspect
-    redirect_to "/items/"+params[:id]+"/edit"
+    redirect_to "/items/"+params[:id]+"/"
   end
 
   def destroy
@@ -71,6 +71,6 @@ class ItemsController < ApplicationController
 
   #Ben item_params
   def item_params
-    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed, :repairer)
+    params.require(:items).permit(:name, :description, :image, :user_id, :repairing, :completed, :repairer, :reviewed)
   end
 end

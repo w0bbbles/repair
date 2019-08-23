@@ -1,29 +1,37 @@
-
-
 <a class="img-link" href="/users/<%= @item.user_id%>">
 	<%= cl_image_tag(@item.image) %>
 </a>
 <p><%= @item.description %><p>
-<% if @current == @item.user_id && @item.repairing == false %>
+<% if @current == @item.user_id && @item.repairing == false && @item.completed == false%>
 	<p>item still waiting for help</p>
 	<a href="/items/<%= @item.id%>/edit">
 		<button>Click here to edit</button>
 	</a>
-<% elsif @current == @item.user_id && @item.repairing == true %>
+<% elsif @current == @item.user_id && @item.repairing == true && @item.completed == false%>
 	<a href="/items/<%= @item.id %>/edit">
 		<button>Items under repair</button>
 	</a>
-<% elsif @current == @item.user_id && @item.completed == true %>
-	<p>item was completed by other</p>
-<% elsif @current == @item.repairer.to_i && @item.repairing == true %>
+<% elsif @current == @item.user_id && @item.completed == true && @item.repairing == false %>
+	<% if @item.reviewed == false %>
+		<a href="/items/<%= @item.id%>/review">
+			<button>Leave a review</button>
+		</a>
+	<% else %>
+		<p>You have left a review<p>
+	<% end %>
+<% elsif @current == @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
 	<a href="/items/<%= @item.id %>/edit">
 		<button>You are repairing</button>
 	</a>
-<% elsif @current == @item.repairer.to_i && @item.completed == true %>
-	<p>You have completed the item</p>
-<% elsif @current ==! @item.repairer.to_i && @item.repairing == true %>
+<% elsif @current == @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
+	<% if @item.reviewed == true %>
+		<p>You have completed the item and owner has reviewed your work</p>
+	<% else %>
+		<p>You have completed the item</p>
+	<% end %>
+<% elsif @current ==! @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
 	<p>item under repair by others</p>
-<% elsif @current ==! @item.repairer.to_i && @item.completed == true %>
+<% elsif @current ==! @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
 	<p>item completed by others</p>
 <% else %>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
