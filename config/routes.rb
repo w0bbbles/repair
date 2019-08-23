@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/users/test' => 'users#test', as: 'test'
 
   resources :landingpage
+  resources :about_us
   resources :devise
   resources :items
   resources :users
