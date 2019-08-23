@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "items" %>
 <img src="<%= image_url (@item.image) %>"/>
 
 <% if @current == @item.repairer.to_i && @item.repairing == true %>
