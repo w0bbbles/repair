@@ -1,63 +1,83 @@
+<!-- Begin JumboTron Display -->
 <div class="jumbotron" >
-  <h1 class="display-3">WELCOME TO USER PAGE</h1>
+  <h1 class="display-3">WELCOME TO <%= @user.username %> PAGE</h1>
   <p class="lead">Click "User" to view items related user and click "For Others" to view items that users had helped others with.</p>
   <hr class="my-4">
 </div>
+<!-- End JumboTron Display -->
+
+<!-- Begin Nav Bar -->
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+    <a class="nav-link active" data-toggle="tab" href="#items">Items</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+    <a class="nav-link" data-toggle="tab" href="#projects">Projects</a>
   </li>
 </ul>
+<!-- End Nav Bar -->
+
+<!-- Begin Tab Content -->
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade show active" id="home">
+
+<!-- Show Tab ITEMS Content -->
+  <div class="tab-pane fade show active" id="items">
+
   	<% if @allitems.empty?  %>
-	<p> test test</p>
-<% elsif current_user.id == @allitems[0].user_id %>
-	<h1>My Items that need repair</h1>
-	<% @items.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
-	<p>My items that are under repair</p>
-	<% @repairingitems.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
-	<p>My repaired items</p>
-	<% @completeditems.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
+			<p>test test</p>
 
-<% else%>
-	<h1>ITEMS OWNED BY OTHERS</h1>
-	<% @items.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
-	<p>Other's items under repair</p>
-	<% @repairingitems.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
-	<p>Other's repaired items</p>
-	<% @completeditems.each do |item| %>
-		<a class="link" href="/items/<%= item.id%>">
-			<img src="<%= image_url (item.image) %>"/>
-		</a>
-	<% end %>
+		<% elsif current_user.id == @allitems[0].user_id %>
 
-<% end %>
+			<!-- Show BROKEN ITEMS -->
+			<h1>BROKEN</h1>
+
+				<div class="container">
+					<div class="row">
+						<% @items.each do |item| %>
+							<div class="card-deck col-lg-4 col-sm-6">
+							  <div class="card">
+							    <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src="<%= image_url (item.image)%>"/></a>
+							    </div>
+						    <div class="card-body">
+				      	 	<h5 class="card-title">
+				      	 		<a href="/items/<%= item.id%>"><%= item.name %></a>
+				    	 		</h5>
+						    	 	<div class="card-text"><%= item.description %></div>
+					 			</div>
+								</div>
+							</div>
+						<% end %>
+					</div>
+				</div>
+
+
+			<!-- Show FIXING ITEMS -->
+			<h1>FIXING</h1>
+			<% @repairingitems.each do |item| %>
+				<a class="link" href="/items/<%= item.id%>">
+					<img src="<%= image_url (item.image) %>"/>
+				</a>
+			<% end %>
+			<!-- End FIXING ITEMS -->
+
+
+			<!-- Show FIXED ITEMS -->
+			<h1>FIXED</h1>
+			<% @completeditems.each do |item| %>
+				<a class="link" href="/items/<%= item.id%>">
+					<img src="<%= image_url (item.image) %>"/>
+				</a>
+			<% end %>
+			<% else%>
+			<!-- End FIXED ITEMS -->
+			<% end %>
   </div>
-  <div class="tab-pane fade" id="profile">
+  <!-- End Tab ITEMS Content -->
+
+
+
+	<!-- Show Tab PROJECTS Content -->
+  <div class="tab-pane fade" id="projects">
    <% if @allitems.empty?  %>
 	<p> test test</p>
 <% elsif current_user.id == @allitems[0].user_id %>
@@ -79,6 +99,8 @@
 			<img src="<%= image_url (item.image) %>"/>
 		</a>
 	<% end %>
+
+
 	<p>Items i am repairing for others</p>
 	<% @repairingothers.each do |item| %>
 		<a class="link" href="/items/<%= item.id%>">
