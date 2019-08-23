@@ -32,8 +32,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @current = current_user.id
     p "-=-================"
-    p @item.repairer.to_i
-    p @item.user_id
+    p @item.id
   end
 
   def edit
