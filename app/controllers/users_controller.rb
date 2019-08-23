@@ -22,17 +22,27 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    puts @user.email
-    @allitems = Item.where(user_id: params[:id])
-    @items = Item.where(user_id: params[:id].to_i, repairing: false, completed: false)
-    puts "===================================="
-    p @items.name
-    p @items
-    @repairingitems = Item.where(user_id: params[:id].to_i,repairing: true, completed: false)
-    @completeditems = Item.where(user_id: params[:id].to_i,repairing: false, completed: true)
+    @brokenitems = Item.where(user_id: params[:id], repairing: false, completed: false)
+    @underrepair = Item.where(user_id: params[:id], repairing: true, completed: false)
+    @repaireditems = Item.where(user_id: params[:id], repairing: false, completed: true)
+    @fixingitems = Item.where(repairer: params[:id], repairing: true, completed: false)
+    @itemsfixed = Item.where(repairer: params[:id], repairing: false, completed: true)
+    @reviews = Review.where(user_id_id: params[:id])
 
-    @repairingothers = Item.where(repairer: current_user.id, repairing: true, completed: false)
-    @completedothers = Item.where(repairer: current_user.id, repairing: false, completed: true)
+    # @allitems = Item.where(user_id: params[:id])
+    # @repaireditems = Item.where(repairer: params[:id])
+    # p "my repaired items"
+    # p @repaireditems
+    # p @repaireditems[0].user_id
+    # @items = Item.where(user_id: params[:id].to_i, repairing: false, completed: false)
+    # puts "===================================="
+    # p @items.name
+    # p @items
+    # @repairingitems = Item.where(user_id: params[:id].to_i,repairing: true, completed: false)
+    # @completeditems = Item.where(user_id: params[:id].to_i,repairing: false, completed: true)
+
+    # @repairingothers = Item.where(repairer: current_user.id, repairing: true, completed: false)
+    # @completedothers = Item.where(repairer: current_user.id, repairing: false, completed: true)
   end
 
   def edit

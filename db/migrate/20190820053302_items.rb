@@ -7,6 +7,7 @@ class Items < ActiveRecord::Migration[5.2]
       t.boolean :completed
       t.text :repairer
       t.string :image
+      t.boolean :reviewed
       t.timestamps
     end
   end
