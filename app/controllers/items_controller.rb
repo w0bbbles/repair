@@ -12,12 +12,15 @@ class ItemsController < ApplicationController
     # render plain: params[:item].inspect
     @item = Item.new(item_params)
 
-    # cloudinary feature
+    # cloudinary feature for image upload
     uploaded_file = params[:items][:image].path
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     @item.image = cloudinary_file["secure_url"]
     puts "**********************"
     puts cloudinary_file["secure_url"]
+
+    # set max length for description text area
+    # @maximum_length = Item.validators_on( :description ).first.options[:maximum]
 
     @item.save
     redirect_to @item
