@@ -17,7 +17,6 @@
       	 		</h4>
       	 		<p class="card-text"><%= item.description %></p>
       	 		<p class="card-text-posted-by">posted by: <a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
-      	 		<p class="card-text-posted-by">posted by: <%= item.user.email %></p>
     	 		</div>
   	 		</div>
 	 		</div>
@@ -33,7 +32,7 @@
         <p>Do you have a household item that needed repair? <br /> Add your items to our community of tinkerers to help you fix it. </p>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="/items/new">Add Item</a>
+        <a class="btn btn-primary btn-lg btn-block" href="/items/new">Add Item</a>
       </div>
     </div>
 
