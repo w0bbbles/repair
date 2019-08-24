@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @items = Item.where(repairing: false, completed: false)
+    @items = Item.order(created_at: :desc).where(repairing: false, completed: false)
   end
 
   def new
@@ -18,9 +18,6 @@ class ItemsController < ApplicationController
     @item.image = cloudinary_file["secure_url"]
     puts "**********************"
     puts cloudinary_file["secure_url"]
-
-    # set max length for description text area
-    # @maximum_length = Item.validators_on( :description ).first.options[:maximum]
 
     @item.save
     redirect_to @item
