@@ -1,4 +1,17 @@
+<<<<<<< Updated upstream
 
+=======
+<div class="container" >
+	<div class="col-md-6 col-lg-4">
+    <div class="card"><img class="card-img-top img-fluid"/>
+      <div class="card-block">
+				<a class="img-link" href="/users/<%= @item.user_id%>">
+					<%= image_tag(@item.image) %>
+				</a>
+			</div>
+  	</div>
+	</div>
+>>>>>>> Stashed changes
 
 <a class="img-link" href="/users/<%= @item.user_id%>">
 	<%= cl_image_tag(@item.image) %>
@@ -10,9 +23,7 @@
 		<button>Click here to edit</button>
 	</a>
 <% elsif @current == @item.user_id && @item.repairing == true %>
-	<a href="/items/<%= @item.id %>/edit">
-		<button>Items under repair</button>
-	</a>
+	<p> item under repair </p>
 <% elsif @current == @item.user_id && @item.completed == true %>
 	<p>item was completed by other</p>
 <% elsif @current == @item.repairer.to_i && @item.repairing == true %>
@@ -34,3 +45,4 @@
 				<button type="submit">I WANT TO REPAIR</button>
 	<% end %>
 <% end %>
+</div>
