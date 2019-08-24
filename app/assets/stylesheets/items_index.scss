@@ -4,7 +4,19 @@
 	overflow: hidden;
 }
 
-.card-text-posted-by {
+card {
+	box-shadow: 0px 0px 0px #CCCCCC;
+	-webkit-transition:  box-shadow .3s ease-out;
+	box-shadow: .6px .7px 1px #CCCCCC;
+}
+
+.card:hover {
+	box-shadow: 1px 8px 20px #CCCCCC;
+	-webkit-transition: box-shadow .4s ease-in;
+}
+
+
+.card-text-posted-by, .card-text-timestamp {
 	font-size: .9rem;
 }
 

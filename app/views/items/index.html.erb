@@ -10,15 +10,14 @@
 		 <% @items.each do |item| %>
     	 <div class="col-lg-3 col-sm-6 portfolio-item">
       	 <div class="card h-100">
-					<p class="card-text-posted-by"><a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
-					 <p class="card-text-timestamp"><%= item.created_at %></p>
-
 	      	 <div class="item-list-card"><a href="/items/<%= item.id%>"><img class="card-img-top" src="<%= image_url (item.image)%>" /></a></div>
         	 <div class="card-body">
-        	 	<h4 class="card-title">
+        	 	<h5 class="card-title">
         	 		<a href="/items/<%= item.id%>"><%= item.name.titlecase %></a>
-      	 		</h4>
-      	 		<p class="card-text text-truncate"><%= item.description %></p>
+        	 	</h5>
+        	 		<p class="card-text-posted-by">owner: <a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
+	      	 		<p class="card-text-timestamp"><%= time_ago_in_words(item.created_at) %> ago </p>
+	      	 		<p class="card-text text-truncate"><%= item.description %></p>
     	 		</div>
   	 		</div>
 	 		</div>
