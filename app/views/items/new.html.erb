@@ -14,7 +14,9 @@
 		  <!-- description -->
 		  <div class="form-group">
 		    <%= form.label :description %><br>
-		    <%= form.text_area :description, class: "form-control" %>
+		    <%= form.text_area :description, id: "counted", maxlength: 200, size: 200, class: "form-control" %>
+		    <p>Current character count: <span id="char-count">0</span> / 200</p>
+
 		  </div>
 
 		  <!-- image -->
@@ -28,6 +30,7 @@
 		  <input type="hidden" name="items[repairing]" value="false">
 		  <input type="hidden" name="items[completed]" value="false">
 		  <input type="hidden" name="items[repairer]" value="null">
+		  <input type="hidden" name="items[reviewed]" value="false">
 
 		  <p>
 		    <%= form.submit class: "btn btn-primary" %>
@@ -35,3 +38,14 @@
 		<% end %>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	  $('#char-count').html($('#counted').val().replace(/\n/g, "\n\r").length);
+	});
+
+	$('#counted').keyup(function() {
+	  $('#char-count').html($(this).val().replace(/\n/g, "\n\r").length);
+	});
+</script>

@@ -22,6 +22,10 @@ body {
             font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     }
 }
+.content-middle-vertical {
+    margin: 100px auto;
+}
+
 .item-list-card {
     width: 100%;
     height: 300px;
@@ -30,4 +34,9 @@ body {
 .social-icons {
 	width: 40px;
 	height: 40px;
+}
+.devise-page-bg {
+    background-image: image-url("devise/devise_bg.jpg");
+    background-size: cover;
+    min-height: 70vh;
 }

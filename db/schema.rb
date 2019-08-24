@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_121856) do
+ActiveRecord::Schema.define(version: 2019_08_23_033036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_121856) do
     t.boolean "completed"
     t.text "repairer"
     t.string "image"
+    t.boolean "reviewed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -31,6 +32,19 @@ ActiveRecord::Schema.define(version: 2019_08_21_121856) do
   create_table "landingpages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "review"
+    t.integer "rating"
+    t.bigint "item_id"
+    t.bigint "repairer_id"
+    t.bigint "user_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.index ["repairer_id"], name: "index_reviews_on_repairer_id"
+    t.index ["user_id_id"], name: "index_reviews_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|
