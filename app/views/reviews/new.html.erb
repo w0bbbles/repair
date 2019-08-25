@@ -12,6 +12,7 @@
 	<input type="hidden" name="reviews[item_id]" value="<%= @item.id%>">
 	<input type="hidden" name="reviews[repairer_id]" value="<%= @item.repairer.to_i%>">
 	<input type="hidden" name="reviews[user_id_id]" value="<%= @item.user_id%>">
+
 	<p>
 		<%= form.submit class: "btn btn-primary" %>
 	</p>
