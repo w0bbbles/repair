@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
 
   validates :description,
   presence: true,
-  length: {maximum: 200},
+  length: {maximum: 50},
   on: :create,
   allow_nil: false
   # validates :description, length: { maximum: 200 }

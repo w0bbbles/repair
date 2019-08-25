@@ -16,7 +16,7 @@
         	 	<h5 class="card-title">
         	 		<a href="/items/<%= item.id%>"><%= item.name.titlecase %></a>
         	 	</h5>
-        	 		<p class="card-text-posted-by">owner: <a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
+        	 		<p class="card-text-posted-by">Owner: <a href="/users/<%= item.user_id%>"><%= item.user.username %></a></p>
 	      	 		<p class="card-text-timestamp"><%= time_ago_in_words(item.created_at) %> ago </p>
 	      	 		<p class="card-text text-truncate"><%= item.description %></p>
     	 		</div>

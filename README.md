@@ -12,6 +12,7 @@ General Assembly Software Engineering Immersive 19
 	- Ruby on Rails
 	- Javascript
 	- SASS
+	- Bootstrap
 	- PostgreSQL
 
 ## Installation Instructions
