@@ -80,6 +80,15 @@
 
 
 </nav>
+
+<% if flash %>
+    <% puts "flash message present"%>
+    <% puts flash%>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-warning mb-0"><button type="button" class="close" data-dismiss="alert">&times;</button><%= value %></div>
+      <% end %>
+      <% end %>
+
     <div style="min-height: 70vh">
         <%= yield %>
     </div>

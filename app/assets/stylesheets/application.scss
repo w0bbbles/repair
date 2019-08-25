@@ -23,7 +23,7 @@ body {
     }
 }
 .content-middle-vertical {
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
 .item-list-card {
@@ -44,4 +44,7 @@ body {
 .fit-image{
 width: 100%;
 object-fit: cover;
+}
+.img-brad {
+    border-radius: 5px;
 }
