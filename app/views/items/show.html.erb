@@ -29,7 +29,7 @@
 			<div class="panel-body">
 
 				<div class="clearfix">
-					<p class="card-text-posted-by"><strong>Posted By: </strong><%= @item.user.email %><br>
+					<p class="card-text-posted-by"><strong>Posted By: </strong><a href="/users/<%= @item.user.id%>"><%= @item.user.username %></a><br>
                     <strong>Date Posted</strong>: <%= @item.created_at %></<strong></p>
 					<div class="col-md-6">
 						<%#<a href="#_" class="monospaced"><span class="glyphicon glyphicon-pencil"></span> Write a Review</a> %>
@@ -40,17 +40,17 @@
                     <% if @current == @item.user_id && @item.repairing == false && @item.completed == false%>
 	<p>item still waiting for help</p>
 	<a href="/items/<%= @item.id%>/edit">
-		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Click here to edit</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" />Click here to edit</button>
 	</a>
 
     <% elsif @current == @item.user_id && @item.repairing == true && @item.completed == false%>
 	<a href="/items/<%= @item.id %>/edit">
-		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Items under repair</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" />Items under repair</button>
 	</a>
     <% elsif @current == @item.user_id && @item.completed == true && @item.repairing == false %>
 	<% if @item.reviewed == false %>
 		<a href="/items/<%= @item.id%>/review">
-			<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Leave a review</button>
+			<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" />Leave a review</button>
 		</a>
 	<% else %>
 		<p>You have left a review<p>
@@ -58,7 +58,7 @@
     <% elsif @current == @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
 
 	<a href="/items/<%= @item.id %>/edit">
-		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">You are repairing</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" />You are repairing</button>
 	</a>
     <% elsif @current == @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
 	<% if @item.reviewed == true %>
@@ -76,7 +76,7 @@
 				<input type="hidden" name="item[repairer]" value="<%=@current%>">
 				<input type="hidden" name="item[description]" value="<%=@item.description%>">
 				<input type="hidden" name="item[completed]" value="false">
-				<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" type="submit">I WANT TO REPAIR</button>
+				<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" type="submit" />I WANT TO REPAIR</button>
 	<% end %>
     <% end %>
 			</div>
