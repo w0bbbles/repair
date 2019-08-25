@@ -1,21 +1,46 @@
-
-<div class="container" >
-	<div class="col-md-6 col-lg-4">
-    <div class="card"><img class="card-img-top img-fluid"/>
-      <div class="card-block">
-				<a class="img-link" href="/users/<%= @item.user_id%>">
-					<%= image_tag(@item.image) %>
-				</a>
+<div class="container content-middle-vertical">
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="">
+            <h2>
+				<%= @item.name.titlecase %>
+                </h2>
 			</div>
-  	</div>
+			<div class="panel-body">
+				<input type="hidden" class="item-images-json" value="[]">
+				<div class="card-block">
+                <a class="img-link" href="/users/<%= @item.user_id%>">
+					<%= image_tag(@item.image, :class => "fit-image") %>
+				</a>
+				</div>
+				<hr>
+				<h3>Product Description</h3>
+				<%= @item.description %>
+			</div>
+		</div>
 	</div>
-  
-<a class="img-link" href="/users/<%= @item.user_id%>">
-	<%= cl_image_tag(@item.image) %>
-</a>
 
-<p><%= @item.description %><p>
-<% if @current == @item.user_id && @item.repairing == false && @item.completed == false%>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Product Details
+			</div>
+			<div class="panel-body">
+
+				<div class="clearfix">
+					<p class="card-text-posted-by">posted by: <%= @item.user.email %></p>
+					<div class="col-md-6">
+						<a href="#_" class="monospaced"><span class="glyphicon glyphicon-pencil"></span> Write a Review</a>
+					</div>
+				</div>
+
+				<hr>
+
+				<p><strong>Date Posted</strong>: <%= @item.created_at %></p>
+
+                <hr>
+                    <% if @current == @item.user_id && @item.repairing == false && @item.completed == false%>
 	<p>item still waiting for help</p>
 	<a href="/items/<%= @item.id%>/edit">
 		<button>Click here to edit</button>
@@ -57,4 +82,21 @@
 				<button type="submit">I WANT TO REPAIR</button>
 	<% end %>
 <% end %>
+				<hr>
+
+				<a href="#_" class="btn btn-success btn-block"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+				<a href="#_" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star"></span> Add to Wishlist</a>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Reviews
+			</div>
+			<div class="panel-body">
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+

@@ -40,3 +40,8 @@ body {
     background-size: cover;
     min-height: 70vh;
 }
+
+.fit-image{
+width: 100%;
+object-fit: cover;
+}
