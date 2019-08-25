@@ -1,6 +1,3 @@
-<%= stylesheet_link_tag "items" %>
-<img src="<%= image_url (@item.image) %>"/>
-
 <% if @current == @item.repairer.to_i && @item.repairing == true %>
 	<p>you are repairing this<p>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
@@ -25,18 +22,35 @@
 				<input type="hidden" name="item[repairing]" value="false">
 				<input type="hidden" name="item[completed]" value ="false">
 				<input type="hidden" name="item[repairer]" value="null">
-				<p>
-			    <%= form.label :description %><br>
-			    <textarea rows="4" cols="50" name="item[description]"><%= @item.description %></textarea>
-			  </p>
-				<button type="submit">Update</button>
+
+<div class="container">
+	<div class="row">
+		<div class="card  m-auto" style="width: 21rem;">
+			<div class="card-body">
+				<img src="<%= image_url (@item.image) %>" class="card-img-top img-fluid">
+			<br>
+			<br>
+				<h5 class="card-title">
+					<%= form.label :name %>
+				</h5>
+					<textarea cols="26" name="item[name]"><%= @item.name %></textarea>
+				<h5 class="card-title">
+					<%= form.label :description %>
+				</h5>
+					<textarea rows="4" cols="26" name="item[description]"><%= @item.description %></textarea>
+					<div class="col text-center"><button class="btn btn-outline-success" type="submit">Update</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
 	<% end %>
+
 <% elsif @current == @item.repairer.to_i && @item.completed == true %>
 	<p>You have repaired this<p>
 <% elsif @current == @item.user_id && @item.repairing == true %>
 	<p>your item is under repair by others</p>
 <% elsif @current == @item.user_id && @item.completed == true %>
 	<p>your item is repaired by others</p>
-
 
 <% end %>
