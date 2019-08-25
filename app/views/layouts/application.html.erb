@@ -59,7 +59,7 @@
 			   <%= image_tag('profile.jpg', :size => '40x40', :class => 'rounded') %>
 			  </button>
 				  <div class="dropdown-menu dropdown-menu-right">
-				    <button class="dropdown-item" type="button"><a href="/users/<%= current_user.id%>">My Account</a></button>
+				    <button class="dropdown-item" type="button"><a href="/users/<%= current_user.id%>">Dashboard</a></button>
 				    <button class="dropdown-item" type="button"><a href="/users/edit">Profile Settings</a></button>
 				    <div class="dropdown-divider"></div>
 				    <%= link_to 'Sign Out', destroy_user_session_url, class: "dropdown-item", method: :delete %>

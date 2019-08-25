@@ -11,7 +11,6 @@ General Assembly Software Engineering Immersive 19
 ## Technologies used
 	- Ruby on Rails
 	- Javascript
-	- jQuery
 	- SASS
 	- PostgreSQL
 
@@ -33,30 +32,13 @@ General Assembly Software Engineering Immersive 19
 	rails db:seed
 
 ## Functions of App
-	- General functions such as upload and edit details of personal belongings, browse the community's listing of disfunctioning items with links to uploader's profile pages and leaving a review for the person responsible for fixing your broken items.  
-	- Users are able to upload personal images from their computers or phone of their broken items for easy and convenient listing.
-	- Personal items can be editted at any time to reflect further details that D.I.Y enthusiast should know.
-	- Users can view reviews left by other people in the community to see what is said about a particular D.I.Y enthusiast and how they have fair.
-	
-This README would normally document whatever steps are necessary to get the
-application up and running.
+	- General functions such as upload and edit details of personal belongings, browse the community's listing of disfunctional items with links to uploader's profile pages and leaving a review to the person responsible for fixing the user's broken item(s).  
+	- Users are able to upload personal images from their computers or phones of their broken items to the web app for easy and convenient listing.
+	- Details of personal items can be editted at any time to reflect further details that D.I.Y enthusiast should know.
+	- Users can view reviews left by other users in the community and also view other's profiles to view reviews left on their profiles by the community as well.
 
-Things you may want to cover:
+## Links
+Wireframe - https://www.dropbox.com/sh/dg01svp0a3fvtib/AAA89FhM4NuxtAImsbZ2h23Xa?dl=0
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Additional Credits
+[BootSwatch] - https://bootswatch.com/litera/
