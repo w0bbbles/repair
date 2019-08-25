@@ -13,6 +13,7 @@ General Assembly Software Engineering Immersive 19
 	- Javascript
 	- jQuery
 	- SASS
+	- Bootstrap
 	- PostgreSQL
 
 ## Installation Instructions
