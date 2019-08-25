@@ -21,6 +21,12 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'cloudinary'
+
+# pagination for items listing page
+gem 'will_paginate'
+# to overcome ExecJS Runtime error
+# gem 'therubyracer'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
