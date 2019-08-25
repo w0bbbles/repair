@@ -1,17 +1,16 @@
 <div class="container content-middle-vertical">
 <div class="row">
+            <h2><%= @item.name.titlecase %></h2>
+</div>
+<div class="card card-body">
+<div class="row">
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="">
-            <h2>
-				<%= @item.name.titlecase %>
-                </h2>
-			</div>
 			<div class="panel-body">
 				<input type="hidden" class="item-images-json" value="[]">
 				<div class="card-block">
                 <a class="img-link" href="/users/<%= @item.user_id%>">
-					<%= image_tag(@item.image, :class => "fit-image") %>
+					<%= image_tag(@item.image, :class => "fit-image img-brad") %>
 				</a>
 				</div>
 				<hr>
@@ -21,82 +20,76 @@
 		</div>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-4" style="border-left: 1px solid lightgrey;">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Product Details
+				<h4>Product Details</h4>
 			</div>
+            <hr>
 			<div class="panel-body">
 
 				<div class="clearfix">
-					<p class="card-text-posted-by">posted by: <%= @item.user.email %></p>
+					<p class="card-text-posted-by"><strong>Posted By: </strong><%= @item.user.email %><br>
+                    <strong>Date Posted</strong>: <%= @item.created_at %></<strong></p>
 					<div class="col-md-6">
-						<a href="#_" class="monospaced"><span class="glyphicon glyphicon-pencil"></span> Write a Review</a>
+						<%#<a href="#_" class="monospaced"><span class="glyphicon glyphicon-pencil"></span> Write a Review</a> %>
 					</div>
 				</div>
 
 				<hr>
-
-				<p><strong>Date Posted</strong>: <%= @item.created_at %></p>
-
-                <hr>
                     <% if @current == @item.user_id && @item.repairing == false && @item.completed == false%>
 	<p>item still waiting for help</p>
 	<a href="/items/<%= @item.id%>/edit">
-		<button>Click here to edit</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Click here to edit</button>
 	</a>
 
-<% elsif @current == @item.user_id && @item.repairing == true && @item.completed == false%>
+    <% elsif @current == @item.user_id && @item.repairing == true && @item.completed == false%>
 	<a href="/items/<%= @item.id %>/edit">
-		<button>Items under repair</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Items under repair</button>
 	</a>
-<% elsif @current == @item.user_id && @item.completed == true && @item.repairing == false %>
+    <% elsif @current == @item.user_id && @item.completed == true && @item.repairing == false %>
 	<% if @item.reviewed == false %>
 		<a href="/items/<%= @item.id%>/review">
-			<button>Leave a review</button>
+			<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">Leave a review</button>
 		</a>
 	<% else %>
 		<p>You have left a review<p>
 	<% end %>
-<% elsif @current == @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
+    <% elsif @current == @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
 
 	<a href="/items/<%= @item.id %>/edit">
-		<button>You are repairing</button>
+		<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star">You are repairing</button>
 	</a>
-<% elsif @current == @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
+    <% elsif @current == @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
 	<% if @item.reviewed == true %>
 		<p>You have completed the item and owner has reviewed your work</p>
 	<% else %>
 		<p>You have completed the item</p>
 	<% end %>
-<% elsif @current ==! @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
+    <% elsif @current ==! @item.repairer.to_i && @item.repairing == true && @item.completed == false %>
 	<p>item under repair by others</p>
-<% elsif @current ==! @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
+    <% elsif @current ==! @item.repairer.to_i && @item.completed == true && @item.repairing == false %>
 	<p>item completed by others</p>
-<% else %>
+    <% else %>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
 				<input type="hidden" name="item[repairing]" value="true">
 				<input type="hidden" name="item[repairer]" value="<%=@current%>">
 				<input type="hidden" name="item[description]" value="<%=@item.description%>">
 				<input type="hidden" name="item[completed]" value="false">
-				<button type="submit">I WANT TO REPAIR</button>
+				<button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star" type="submit">I WANT TO REPAIR</button>
 	<% end %>
-<% end %>
-				<hr>
-
-				<a href="#_" class="btn btn-success btn-block"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
-				<a href="#_" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-star"></span> Add to Wishlist</a>
+    <% end %>
 			</div>
 		</div>
-
+        <%# <hr>
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Reviews
 			</div>
 			<div class="panel-body">
 			</div>
 		</div>
+        %>
 	</div>
 </div>
 </div>
-
+</div>

@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
     # cloudinary feature for image upload
     uploaded_file = params[:items][:image].path
+
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     @item.image = cloudinary_file["secure_url"]
     puts "**********************"
