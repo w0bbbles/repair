@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @items = Item.order(created_at: :desc).where(repairing: false, completed: false)
+    # @items = Item.order(created_at: :desc).where(repairing: false, completed: false)
+    @items = Item.order(created_at: :desc).where(repairing: false, completed: false).page(params[:page]).per_page(8)
   end
 
   def new

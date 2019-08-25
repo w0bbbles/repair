@@ -27,7 +27,8 @@ class UsersController < ApplicationController
     @repaireditems = Item.where(user_id: params[:id], repairing: false, completed: true)
     @fixingitems = Item.where(repairer: params[:id], repairing: true, completed: false)
     @itemsfixed = Item.where(repairer: params[:id], repairing: false, completed: true)
-    @reviews = Review.where(user_id_id: params[:id])
+    @reviews = Review.where(repairer_id: params[:id].to_i)
+
 
     # @allitems = Item.where(user_id: params[:id])
     # @repaireditems = Item.where(repairer: params[:id])

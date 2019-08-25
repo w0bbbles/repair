@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
     @reviews = Review.new(review_params)
     @item = Item.find(params[:id])
     @item.reviewed = true
+
     p "=============================="
     p @reviews
     @reviews.save
@@ -24,6 +25,6 @@ class ReviewsController < ApplicationController
   end
   private
     def review_params
-      params.require(:reviews).permit(:review, :rating, :item_id, :repairer_id, :user_id_id)
+      params.require(:reviews).permit(:review, :rating, :item_id, :repairer_id, :user_id_id, :itemname)
     end
   end
