@@ -14,4 +14,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( landingpage.css )
 Rails.application.config.assets.precompile += %w( items_listing.css )
+
+Rails.application.config.assets.precompile += %w( usershow.css )
+
 Rails.application.config.assets.precompile += %w( items_index.css )
+
