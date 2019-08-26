@@ -24,7 +24,7 @@
 	 		</div>
 		 <% end %>
     </div>
-    <%= will_paginate @items %>
+    <%= will_paginate @items, params: @will_paginate_params, class: 'text-center' %>
     <!-- /.row End of Latest Listing -->
 
     <hr>
