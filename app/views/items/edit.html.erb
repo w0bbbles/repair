@@ -8,10 +8,22 @@
 				<button type="submit">Completed</button>
 	<% end %>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
-				<p>
-			    <%= form.label :description %><br>
-			    <textarea rows="4" cols="50" name="item[description]"><%= @item.description %></textarea>
-			  </p>
+
+<div class="container">
+	<div class="row">
+		<div class="card  m-auto" style="width: 21rem;">
+			<div class="card-body">
+				<img src="<%= image_url (@item.image) %>" class="card-img-top img-fluid">
+			<br>
+			<br>
+				<h5 class="card-title">
+		    	<%= form.label :description %><br>
+		    </h5>
+		    	<textarea rows="4" cols="26" name="item[description]"><%= @item.description %></textarea>
+		  	</div>
+		  </div>
+	</div>
+</div>
 			  <input type="hidden" name="item[repairing]" value="true">
 			  <input type="hidden" name="item[repairer]" value="<%=@current%>">
 			  <input type="hidden" name="item[completed]" value="false">
