@@ -14,20 +14,22 @@
 		<div class="card  m-auto" style="width: 21rem;">
 			<div class="card-body">
 				<img src="<%= image_url (@item.image) %>" class="card-img-top img-fluid">
+
+				<br>
 			<br>
-			<br>
-				<h5 class="card-title">
-		    	<%= form.label :description %><br>
-		    </h5>
-		    	<textarea rows="4" cols="26" name="item[description]"><%= @item.description %></textarea>
-		  	</div>
-		  </div>
+          <h5>
+			    <%= form.label :description %><br>
+			    <textarea rows="4" cols="26" name="item[description]"><%= @item.description %></textarea>
+			  </h5>
+			  <div class="col text-center"><button class="btn btn-outline-success" type="submit">Update</button></div>
+			  </div>
+		</div>
 	</div>
 </div>
 			  <input type="hidden" name="item[repairing]" value="true">
 			  <input type="hidden" name="item[repairer]" value="<%=@current%>">
 			  <input type="hidden" name="item[completed]" value="false">
-			  <button type="submit">update description</button>
+
 	<% end %>
 <% elsif @current == @item.user_id && @item.repairing == false %>
 	<%= form_with scope: :items, model: @item, local: true do |form| %>
