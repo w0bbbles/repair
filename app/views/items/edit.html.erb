@@ -14,7 +14,10 @@
 		<div class="card  m-auto" style="width: 21rem;">
 			<div class="card-body">
 				<img src="<%= image_url (@item.image) %>" class="card-img-top img-fluid">
-				<h5>
+
+				<br>
+			<br>
+          <h5>
 			    <%= form.label :description %><br>
 			    <textarea rows="4" cols="26" name="item[description]"><%= @item.description %></textarea>
 			  </h5>

@@ -24,6 +24,7 @@ gem 'cloudinary'
 
 # pagination for items listing page
 gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # to overcome ExecJS Runtime error
 # gem 'therubyracer'
 
